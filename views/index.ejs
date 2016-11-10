@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Nightlife App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <script src="https://use.fontawesome.com/0acc5953fa.js"></script>
+    
+  </head>
+<body>
+  <div class="container">
+    <div class="page-header text-center">
+      <h1 id="title">Nightlife App</h1>
+      <h3 id="title-description">Search for bars and nightclubs nearest you</h3>
+      <h3 id="title-description">Powered by FourSquare API</h3>
+      
+      <% if(Data ==='undefined'){ %>
+      <button id="sign-btn"><a href="/auth/github" id="going">Click here to RSVP</a></button>
+      <% } %>
+      
+    </div>
+    <div class="input-container">
+      <div class="row">
+          <div class="input-class">
+            <form>
+             <div class="input-group" id="input-add">
+              <input class="form-control formAdd" id="formInput"/>
+                <div class="input-group-btn">
+                  <input type="submit" id="formBtn" class="btn form-control formAdd" value="SEARCH"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <div id="search-output">
+    
+   <% if(Data ==='undefined'){ %> 
+    <% null; %>
+    <% } else { %> 
+    <% var itemIndex = -1; %>
+    <% for(var i =0; i<Data.response.groups[0].items.length; i++){ %>
+    <% itemIndex++ %>
+      
+    <div class="row" id="list-row">
+      <div class="col-md-2" id="list-photos">
+        <img src="<%= Data.response.groups[0].items[i].venue.featuredPhotos.items[0].prefix %>500x500<%=Data.response.groups[0].items[i].venue.featuredPhotos.items[0].suffix %>">
+      </div>
+      <div class="col-md-10" id="inner-list">
+        
+        <%var me = "" %>
+        <% var are = "" %>
+        <%if(Events.events[i].length !== 0){ %>
+         <% me = "You and " %>
+         <% are = " are " %>
+        <% } %>
+        
+        <span class="badge" id="list-going"><button id="going-btn" value="<%= itemIndex %>"><%= me %><%= Rsvp.rsvp[0][i].length%><%= are %> going</button></span>
+        
+        <p class="poll" id="div-title">
+        <a id="list-title" href="<%= Data.response.groups[0].items[i].tips[0].canonicalUrl %>"> <%= Data.response.groups[0].items[i].venue.name %></a>
+        <span id="list-address"><%=Data.response.groups[0].items[i].venue.location.address %>,<%=Data.response.groups[0].items[i].venue.location.postalCode %></span>
+        <p id="list-rating">Rating: <%= Data.response.groups[0].items[i].venue.rating %></p>
+        <p class="poll" id="list-description"><%= Data.response.groups[0].items[i].tips[0].text %></p>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+  
+    </div>
+  </div>
+    <script src="javascripts/ajaxFunctions.js"></script>
+    <script src="javascripts/viewControllers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

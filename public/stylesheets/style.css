@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
+body {
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+  background-image: url(https://i.imgsafe.org/401b315aa6.jpg);
+}
+
+/***Header****/
+
+#title{
+  font-family: "Ubuntu";
+  font-size: 2.5vmax;
+  color: #fff;
+}
+
+#title-description{
+  font-family: "Ubuntu";
+  font-size: 2vmax;
+  color: #fff;
+}
+
+.page-header{
+  margin-top: 5em;
+}
+
+#sign-btn{
+  font-family: "Ubuntu";
+  font-size: 1.4vmax;
+  color: #fff;
+}
+
+#going{
+  color: #333;
+}
+
+/****Search Box ****/
+
+form{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 3.7em;
+  border-radius: 10px;
+}
+
+.input-class{
+  width: 40vw;
+  display: table;
+  margin: 0px auto 0px auto;
+}
+
+#input-add{
+  height: 50%;
+  width: 95%;
+  margin: auto;
+}
+
+.formAdd{
+    width: 75%;
+    height: 35px;
+    display: block;
+    margin: 8px auto 15px;
+    padding: 0 15px;
+    border: none;
+    font-size: 1vmax;
+    font-weight: 600;
+}
+
+#formInput{
+ background-color: rgba(0, 0, 0, 0.4);
+  color:#fff;
+  transition: background-color 0.5s ease;
+}
+
+#formInput:hover,
+#formInput:active,
+#formInput:focus,
+#formInput:visited{
+  background-color:#fff;
+  text-decoration: none;
+  border: none;
+  color:#333;
+}
+
+#formBtn{
+  background-color: rgba(0, 0, 0, 0.4);
+  color:#fff;
+  border-radius: 0 5px 5px 0;
+  margin-left: -3px;
+  margin-top: 8px;
+  font-size: 1vmax;
+  font-weight: 600;
+  transition: background-color 0.5s ease;
+}
+
+#formBtn:hover,
+#formBtn:active,
+#formBtn:focus{
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: none;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+
+/****Results *****/
+
+.poll{
+  font-size: 1.1em;
+  margin: 0.7em 0.5em;
+}
+
+#search-output{
+  margin-top: 3.5em;
+}
+
+#list-row{
+  width: 60vw;
+  margin: 1vw auto;
+  background-color: rgba(255,255,255,0.6);
+  overflow: hidden
+}
+
+#list-photos{
+  max-height: 40vh;
+  overflow: hidden;
+  padding: 0px;
+}
+
+#list-photos > img{
+
+  width: 100%;
+  position: relative;
+}
+
+#list-going{
+  float: right;
+  max-width: 30%
+  padding-top: 6px;
+  margin: 10px 10px 5px 10px;
+}
+
+#list-address{
+  margin-left: 20px;
+}
+
+#list-title{
+  font-family:Ubuntu;
+  font-weight: 600;
+}
+
+#list-description{
+  font-style: italic;
+  margin-top: 3px;
+}
+
+#list-rating{
+  font-size: 1.1em;
+  margin: 0px 0.5em;
+}
+
+#div-title{
+  padding-bottom: 3px;
+  border-bottom: 1px solid #eee;
+}
+
+#going-btn{
+  color: #333;
+  background-color: #777;
+  text-decoration: none;
+  border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+}
+
+#going-btn:active,
+#going-btn:focus,
+#going-btn:visited{
+  text-decoration: none;
+}
+
+
