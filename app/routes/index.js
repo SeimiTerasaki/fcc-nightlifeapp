@@ -31,6 +31,22 @@ var EventManager = require(path + '/app/controllers/eventManager.js');
         }
     })
   }
+  
+  function searchApi(req, res, next){
+     req.session.location = req.params.query;
+    foursquare.exploreVenues({
+        near: req.params.query,
+        limit: 15,
+        query: 'Nightlife',
+        venuePhotos: 1
+    }, function(error, response) {
+        if (error) console.log("Sorry, we could not find any results for your location.");
+        else{
+        req.Search = response;
+        next();
+        }
+    })
+}
 
 var eventManager = new EventManager();
 
@@ -49,19 +65,13 @@ eventManager.getRsvp, eventManager.getEvents, getUserData, function(req, res){
     });
 });
 
-router.get('/search/:query(*)', function(req, res){
-     req.session.location = req.params.query;
-    foursquare.exploreVenues({
-        near: req.params.query,
-        limit: 15,
-        query: 'Nightlife',
-        venuePhotos: 1
-    }, function(error, response) {
-        if (error) console.log("Sorry, we could not find any results for your location.");
-        else{
-        res.json(response);
-        }
-    })
+router.get('/search/:query(*)', searchApi, eventManager.getRsvp, function(req, res){
+    var array = [];
+    var data1 = req.Search;
+    var data2 = req.Rsvp;
+    array.push(data1, data2);
+    console.log(array);
+    res.json(array);
 });
 
 router.get('/auth/github', passportGithub.authenticate('github'));

@@ -40,7 +40,6 @@ function eventManager () {
       function(err, doc){
         if(err){ throw err;
         } else {
-        console.log(doc);
         req.Rsvp = doc;
         next();
         }
