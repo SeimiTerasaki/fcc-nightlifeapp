@@ -11,7 +11,6 @@ var mongoose = require('mongoose');
 
 require('dotenv').config();
 var index = require('./app//routes/index');
-var users = require('./app/routes/users');
 var app = express();
 
 mongoose.Promise = global.Promise;
@@ -38,7 +37,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
 
 
 module.exports = app;
