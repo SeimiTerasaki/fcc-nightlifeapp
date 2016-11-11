@@ -28,7 +28,7 @@ function getLinks(data){
 }, false);
 
 
-var goingButton = document.getElementsByTagName('button');
+var goingButton = document.getElementsById('going-btn');
 for (var i = 0; i < goingButton.length; i++) {
    
 goingButton[i].addEventListener('click', function(e){
@@ -54,8 +54,6 @@ goingButton[i].addEventListener('click', function(e){
     if(err) throw err;
     else null;
     });
-   } else if(e.target.textContent.indexOf("Click") === 13){
-      null;
    }
 },false);
 }
